@@ -154,7 +154,7 @@ function congress_get_photo($url){
 	$url = trim($url);
 	
 	//return default image for empty url
-	if( empty($url) ) return LEGISLATORS_PATH . '/photo/unknown.jpg';
+	if( empty($url) ) return LEGISLATORS_PATH . 'photo/unknown.jpg';
 	
 	//return original url for non-ssl site
 	if( !is_ssl() ) return $url;
