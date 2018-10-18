@@ -559,7 +559,7 @@ function legislators_start($atts)
 							<input type="text" name="congress_address" id="congress_address' . $id . '" placeholder="ex: ' . esc_attr($atts['congress_map_center_placeholder']) . '" />
 							<input type="submit" value="Find" name="submit" class="submit" />
 							<img src="'.LEGISLATORS_PATH.'loader.gif" id="jloader' . $id . '" alt="loading" title="Loading" style="display:none;" />
-							<p class="congress_example"><i>ex: 500 S Grand Central Parkway, Las Vegas, NV 89106 </i></p>
+							<p class="congress_example"><i>ex: 89106 OR 500 S Grand Central Parkway, Las Vegas, NV 89106 </i></p>
 						</fieldset>';
 		}
 
