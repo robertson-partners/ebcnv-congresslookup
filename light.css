@@ -1,0 +1,75 @@
+form.legislators { 
+	padding: 30px 40px 20px 40px; 
+	background: #fff;
+	color: #555 !important;	 
+	font-family: sans-serif;
+	border: 1px solid #ddd; 
+			
+	/* -- CSS3 - define rounded corners for the form -- */	
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px; 		
+	
+	/* -- CSS3 - create a background graident -- */
+	background: -webkit-gradient(linear, 0% 0%, 0% 40%, from(#EEE), to(#FFFFFF)); 
+	background: -moz-linear-gradient(0% 40% 90deg,#FFF, #EEE); 
+	
+	/* -- CSS3 - add a drop shadow -- */
+	-webkit-box-shadow:0px 0 50px #ccc;
+	-moz-box-shadow:0px 0 50px #ccc; 
+	box-shadow:0px 0 50px #ccc;		
+}	
+
+form.legislators input, form.legislators textarea { 		
+	background: #fff; 
+	font-size: 14px; 
+	color: #555; 
+	border: 1px #ddd solid;	
+
+	/* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	-webkit-box-shadow: 0px 0px 4px #aaa;
+	-moz-box-shadow: 0px 0px 4px #aaa; 
+	box-shadow: 0px 0px 4px #aaa;
+	
+	/* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	-webkit-transition: background 0.3s linear;		
+}
+
+form.legislators input:hover, form.legislators textarea:hover { 
+	background: #eee; 
+}
+	
+form.legislators input.error { 
+	background: #EBC3D3; 
+	border: 1px #EB88B0 solid;
+}
+
+form.legislators input.error:hover{ 
+	background: #E3ACC2; 
+	border: 1px #D9779E solid;
+}
+
+
+form.legislators input.submit { 	
+	color: #eee !important; 
+	background-color: #18a5cc;
+	border: none;
+	
+	/* -- CSS3 Transition - define which property to animate (i.e. the shadow)  -- */
+	-webkit-transition: -webkit-box-shadow 0.3s linear;
+	
+	/* -- CSS3 - Rounded Corners -- */
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px;
+	border-radius: 4px; 
+					
+	/* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#18a5cc), to(#0a85a8)); 
+	background: -moz-linear-gradient(25% 75% 90deg,#0a85a8, #18a5cc);		
+} 
+
+form.legislators input.submit:hover { 		
+	-webkit-box-shadow: 0px 0px 20px #555;
+	-moz-box-shadow: 0px 0px 20px #aaa; 
+	box-shadow: 0px 0px 20px #555;	
+} 

@@ -1,0 +1,19 @@
+form.legislators { 
+	padding: 30px 40px 20px 40px; 
+	background: #757575;
+	color: #F7F7F7 !important;
+	border: 1px solid #DEDEDE; 
+}
+
+form.legislators input.submit { 	
+	color: #eee !important; 
+	background-color: #18a5cc;
+	border: none;
+} 
+
+form.legislators input, form.legislators textarea { 		
+	background: #fff; 
+	font-size: 14px; 
+	color: #555; 
+	border: 1px #ddd solid;
+}
