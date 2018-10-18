@@ -125,7 +125,7 @@ function congress_get_title($line = false){
 }
 
 function congress_get_default_map_center(){
-	return '500 S Grand Central Parkway, Las Vegas, NV 89106';
+	return '89106 OR 500 S Grand Central Parkway, Las Vegas, NV 89106';
 }
 
 function congress_get_default_map_size(){
