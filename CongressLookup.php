@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: CongressLookup
+Plugin Name: Modified - CongressLookup
 Plugin URI: http://CongressLookup.com/
 Description: CongressLookup is powered by data APIs from Google <a href="https://developers.google.com/civic-information/" targer="_blank" >Google Civic Information API</a> and <a href="http://www.google.com/intl/en-US_US/help/terms_maps.html" target="_blank">Google Maps</a>.
-Version: 3.0.2
-Author: Constructive Growth LLC
-Author URI: http://constructivegrowth.net/
+Version: 3.1.0a
+Author: Constructive Growth LLC, Tom Madrid - Robertson+Partners
+Author URI: http://constructivegrowth.net/, https://robertson.partners
 License: GNU General Public License v2 or later
 */
 if ( !defined('ABSPATH') ) exit();
