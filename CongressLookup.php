@@ -610,7 +610,7 @@ function legislators_start($atts)
 		
 		//div wrapper for the map
 		$html .= '<div id="map_canvas' . $id . '"' . ( $atts['congress_class'] ? ' class="' . $atts['congress_class'] . '" ' : '') . ( $atts['congress_style'] ? ' style="' . $atts['congress_style'] . '" ' : '') . '></div>';
-    $html .= '<div class="notice">*Note: many representatives do not have a public email address. we recommend that you visit their websites, and copying your letter to them via their contact form. additionally, you may print your letter and sent it in the mail.</div>';
+    $html .= '<div class="notice">*Note: Many representatives do not have a public email address. We recommend that you visit their website, and copy and paste your letter to them into their contact form. Additionally, you may print your letter and send it in the mail to their office address.</div>';
 		$html .= '<div id="congress_holder' . $id . '"></div>';
 		$html .= '</form>';
 
