@@ -448,7 +448,7 @@ function congress_get_api_data_callback(){
 							}
                         }
 
-                        $output .= '</ul></div>';
+                        $output .= '</ul><hr><p>This information is provided by the <a href="https://developers.google.com/civic-information/" rel="noopener nofollow" target="_blank">Google Civic Information Database</a>.</p></div>';
                     }
 
 
@@ -739,7 +739,7 @@ function legislators_start($atts)
 							if(response != "Error1" && response != "Error2"){
 								jQuery("#congress_holder" + id).html( response );
 							}else{
-								jQuery("#congress_holder" + id).html( "Address or zip code not found.  Please try again.." );
+								jQuery("#congress_holder" + id).html( "Address or zip code not found. Try using your complete street address for best results. This information is provided by the <a href=\"https://developers.google.com/civic-information/\" rel=\"noopener nofollow\" target=\"_blank\">Google Civic Information Database</a>." );
 							}
 						});						
 					}
