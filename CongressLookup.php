@@ -448,7 +448,7 @@ function congress_get_api_data_callback(){
 							}
                         }
 
-                        $output .= '</ul><hr><p>This information is provided by the <a href="https://developers.google.com/civic-information/" rel="noopener nofollow" target="_blank">Google Civic Information Database</a>.</p></div>';
+                        $output .= '</ul></div>';
                     }
 
 
@@ -470,7 +470,7 @@ function congress_get_api_data_callback(){
                     $output .= 'if(typeof jsCongress !== \'undefined\' && jQuery.isFunction(jsCongress)){jsCongress(responseCongressJson);} ';
                     $output .= '</script>';
                 }
-                $output .= '<div style="clear:both"></div></div>';
+                $output .= '<hr><p>This information is provided by the <a href="https://developers.google.com/civic-information/" rel="noopener nofollow" target="_blank">Google Civic Information Database</a>.</p><div style="clear:both"></div></div>';
 			
 		    }
 		    else $output .= "Error1";
