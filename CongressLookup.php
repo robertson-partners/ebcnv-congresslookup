@@ -28,7 +28,7 @@ function CongressLookup_install()
 add_action( 'wp_enqueue_scripts', 'congress_scripts' );
 function congress_scripts(){
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script('google_map_api', 'https://maps.googleapis.com/maps/api/js?key=' . get_option('congress_google_map_api_key'), array('jquery'), false, true ) ;
+	wp_enqueue_script('google_map_api', 'https://maps.googleapis.com/maps/api/js?key=' . get_option('congress_google_map_api_key') . '&libraries=places&callback=initAutocomplete', array('jquery'), false, true ) ;
 }
 
 add_action('wp_head', 'legislators_head');
@@ -755,44 +755,20 @@ function legislators_start($atts) {
     
     /* Autocomplete */
 
-    $js .= "var placeSearch, autocomplete;";
+    $js .= "\r\n";
+    $js .= "var placeSearch, autocomplete;\r\n";
     $js .= "function initAutocomplete() {
-              autocomplete = new google.maps.places.Autocomplete(
-                (document.getElementById('congress_address".$id."')), {types: ['geocode']}
-              );
+              var input = document.getElementById('congress_address".$id."');
+              autocomplete = new google.maps.places.Autocomplete(input, {types: ['address']});
+              autocomplete.setFields(['formatted_address']);
               autocomplete.addListener('place_changed', fillInAddress);
-            }";
+            }\r\n";
     
     $js .= "function fillInAddress() {
               // Get the place details from the autocomplete object.
               var place = autocomplete.getPlace();
-
-              console.log(place);
-              /*
-              for (var component in componentForm) {
-                document.getElementById(component).value = '';
-                document.getElementById(component).disabled = false;
-              }
-
-              // Get each component of the address from the place details
-              // and fill the corresponding field on the form.
-              for (var i = 0; i < place.address_components.length; i++) {
-                var addressType = place.address_components[i].types[0];
-                if (componentForm[addressType]) {
-                  var val = place.address_components[i][componentForm[addressType]];
-                  document.getElementById(addressType).value = val;
-                }
-              }
-              */
-            }";
-
-
-
-
-		
+            }\r\n";
     $js .= '</script>';
-    $js .= '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-RL15xmHcXBkL6m5fcXIJY6zrN44vELE&libraries=places&callback=initAutocomplete"
-    async defer></script>';
 		$html .= $js;
 //____________________________________________________________________________________________________________________________________________
 
