@@ -480,29 +480,31 @@ function congress_get_api_data_callback(){
 	die($output);
 }
 
-function legislators_head()
-{
+function legislators_head() {
 ?>
-	<link href='<?php  echo LEGISLATORS_PATH; ?>style.css' rel='stylesheet' type='text/css' />
-	<?php if(get_option('congress_themes') && get_option('congress_themes') == 'modern'): ?><link href='<?php  echo LEGISLATORS_PATH; ?>light.css' rel='stylesheet' type='text/css' /> <?php endif; ?>
-	<?php if(get_option('congress_themes') && get_option('congress_themes') == 'custom'): ?>
+	<link href='<?php echo LEGISLATORS_PATH; ?>style.css' rel='stylesheet' type='text/css' />
+	<?php if(get_option('congress_themes') && get_option('congress_themes') == 'modern'): ?>
+    <link href='<?php echo LEGISLATORS_PATH; ?>light.css' rel='stylesheet' type='text/css' /> <?php endif; ?>
+	
+  <?php if(get_option('congress_themes') && get_option('congress_themes') == 'custom'): ?>
 		<?php if(get_option('congress_themes_css')): ?>
+      <!--
 			<style type="text/css">
-				<!--
 				<?php echo get_option('congress_themes_css'); ?>
-				-->
 			</style>
+      -->
 		<?php endif; ?>
 	<?php endif; ?>
+
 	<script type="text/javascript">
 		var ajaxurl = <?php echo json_encode( admin_url( "admin-ajax.php" ) ); ?>;      
 		var security = <?php echo json_encode( wp_create_nonce( "my-special-string" ) ); ?>;
 	</script>
+
 <?php
 }
 
-function legislators_start($atts)
-{	
+function legislators_start($atts) {	
 	$defaults_array = array(
 		'id' => false, 
 		'show' => 'all', 
@@ -537,8 +539,7 @@ function legislators_start($atts)
 	
 	/* $congress_key = get_option('congress_key'); */
 	$congress_key = 'temporarily_api_key_from_propublica';
-	
-	
+
 	$html = '';
 	
 	if($congress_key):
@@ -750,11 +751,48 @@ function legislators_start($atts)
 		
 		$js .= 'jQuery(document).ready(function(){congressInitialize' . $id . '();});';			
 
-		if(isset($atts['congress_js']) && $atts['congress_js']){$js .= stripslashes($atts['congress_js']);}
+    if(isset($atts['congress_js']) && $atts['congress_js']){$js .= stripslashes($atts['congress_js']);}
+    
+    /* Autocomplete */
+
+    $js .= "var placeSearch, autocomplete;";
+    $js .= "function initAutocomplete() {
+              autocomplete = new google.maps.places.Autocomplete(
+                (document.getElementById('congress_address".$id."')), {types: ['geocode']}
+              );
+              autocomplete.addListener('place_changed', fillInAddress);
+            }";
+    
+    $js .= "function fillInAddress() {
+              // Get the place details from the autocomplete object.
+              var place = autocomplete.getPlace();
+
+              console.log(place);
+              /*
+              for (var component in componentForm) {
+                document.getElementById(component).value = '';
+                document.getElementById(component).disabled = false;
+              }
+
+              // Get each component of the address from the place details
+              // and fill the corresponding field on the form.
+              for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                if (componentForm[addressType]) {
+                  var val = place.address_components[i][componentForm[addressType]];
+                  document.getElementById(addressType).value = val;
+                }
+              }
+              */
+            }";
+
+
 
 
 		
-		$js .= '</script>';
+    $js .= '</script>';
+    $js .= '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-RL15xmHcXBkL6m5fcXIJY6zrN44vELE&libraries=places&callback=initAutocomplete"
+    async defer></script>';
 		$html .= $js;
 //____________________________________________________________________________________________________________________________________________
 
