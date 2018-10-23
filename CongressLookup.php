@@ -176,7 +176,7 @@ function congress_get_photo($url){
 		$cache_photo = $photo_url;
 	}
 
-	return $photo;
+	return $url;
 }
 
 function congress_get_api_data_callback(){
