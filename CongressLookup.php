@@ -420,12 +420,13 @@ function congress_get_api_data_callback(){
                                                         . '</a>';
 
                                 } elseif ( $value->type == 'YouTube' && in_array("youtube_id", $a) ) {
+                                    $yttxt = (strlen($value->id) > 20) ? substr($value->id,0,20).'...' : $value->id;
                                     $value_translated = '<a href="'
-                                                        . esc_url_raw( 'https://www.youtube.com/'
+                                                        . esc_url_raw( 'https://www.youtube.com/user'
                                                                        . $value->id )
                                                         . '" target="_blank">'
                                                         . esc_url_raw( 'http://www.youtube.com/user/'
-                                                                       . $value->id )
+                                                                       . $yttxt )
                                                         . '</a>';
 
                                 } elseif ( $value->type == 'GooglePlus' && in_array("google_plus_id", $a) ) {
