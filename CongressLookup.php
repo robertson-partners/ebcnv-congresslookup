@@ -420,7 +420,7 @@ function congress_get_api_data_callback(){
                                                         . '</a>';
 
                                 } elseif ( $value->type == 'YouTube' && in_array("youtube_id", $a) ) {
-                                    $yttxt = (strlen($value->id) > 20) ? substr($value->id,0,20).'...' : $value->id;
+                                    $yttxt = (strlen($value->id) > 10) ? substr($value->id,0,10).'...' : $value->id;
                                     $value_translated = '<a href="'
                                                         . esc_url_raw( 'https://www.youtube.com/user'
                                                                        . $value->id )
