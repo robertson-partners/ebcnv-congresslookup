@@ -204,7 +204,7 @@ function congress_get_api_data_callback(){
 
 		$myselection = $data['congress_show'];
 		if($myselection == 'representative')
-			$discard = '&roles=legislatorLowerBody';
+			$discard = '&roles=legislatorLowerBody&roles=deputyHeadOfGovernment&roles=executiveCouncil&roles=governmentOfficer&roles=headOfGovernment&roles=headOfState';
         elseif($myselection == 'senator')
 	        $discard = '&roles=legislatorUpperBody';
 		else
@@ -245,6 +245,11 @@ function congress_get_api_data_callback(){
                 $result_array = array();
 
                 foreach ($congress->officials as $c) {
+
+                    if($c->address[0]->line1 == "The White House") {
+                      continue;
+                    }
+                      
 
                     //_______________________________________________________
                     ///$result_array[] = (array)$c;
