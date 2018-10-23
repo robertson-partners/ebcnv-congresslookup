@@ -359,7 +359,8 @@ function congress_get_api_data_callback(){
                             if (is_array($c->urls)){
                                 $urls = array();
                                 foreach ( $c->urls as $url ) {
-                                    $urls[] = '<a href="' . $url . '" target="_blank">' . $url . '</a>';
+                                    $urltxt = (strlen($url) > 30) ? substr($url,0,30).'...' : $url;
+                                    $urls[] = '<a href="' . $url . '" target="_blank">' . $urltxt . '</a>';
                                 }
                                 $output .= '<li>' . esc_html__('Website','') . ' : ' . implode(',',$urls) . '</li>';
                             }
