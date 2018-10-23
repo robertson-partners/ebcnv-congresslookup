@@ -176,7 +176,7 @@ function congress_get_photo($url){
 		$cache_photo = $photo_url;
 	}
 
-	return $cache_photo;
+	return $photo;
 }
 
 function congress_get_api_data_callback(){
@@ -392,12 +392,13 @@ function congress_get_api_data_callback(){
 
                             } else
                                 if ( $value->type == 'Facebook' && in_array("facebook_id", $a) ) {
+                                    $fbtxt = (strlen($value->id) > 20) ? substr($value->id,0,20).'...' : $value->id;
                                     $value_translated = '<a href="'
                                                         . 'https://www.facebook.com/'
                                                         . $value->id
                                                         . '" target="_blank">'
                                                         . esc_url( 'https://www.facebook.com/'
-                                                                   . $value->id )
+                                                                   . $fbtxt )
                                                         . '</a>';
 
                                 } elseif ( $value->type == 'Twitter' && in_array("twitter_id", $a) ) {
